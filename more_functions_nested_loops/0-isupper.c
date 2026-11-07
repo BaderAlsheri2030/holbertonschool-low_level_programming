@@ -9,7 +9,7 @@
 	int _isupper(int c)
 {
 	/* TODO: Add a condition that checks whether c is from 'A' through 'Z'. */
-	if (c >= 'A' && c <= 'Z' )
+	if (c >= 'A' && c <= 'Z')
 	{
 		return (1);
 	}
