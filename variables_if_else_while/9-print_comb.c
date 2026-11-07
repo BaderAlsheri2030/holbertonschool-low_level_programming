@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Prints single-digit numbers separated by commas
+ * main - Prints all single-digit numbers separated by comma and space
  *
  * Return: Always 0
  */
@@ -11,11 +11,11 @@ int main(void)
 
 	for (digit = 0; digit <= 9; digit++)
 	{
-		putchar(digit + 0);
+		putchar(digit + '0');
 		if (digit < 9)
 		{
-			putchar(,);
-			putchar( );
+			putchar(',');
+			putchar(' ');
 		}
 	}
 	putchar('\n');
