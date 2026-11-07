@@ -16,13 +16,13 @@ int main(void)
 		digit++;
 	}
 
-	digit = a;
-	while (digit <= f)
+	digit = 'a';
+	while (digit <= 'f')
 	{
 		putchar(digit);
 		digit++;
 	}
 
-	putchar(n);
+	putchar('\n');
 	return (0);
 }
