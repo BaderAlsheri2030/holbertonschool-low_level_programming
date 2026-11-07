@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Prints single-digit base 10 numbers
+ * main - Prints the digits from 0 to 9
  *
  * Return: Always 0
  */
@@ -9,11 +9,9 @@ int main(void)
 {
 	int digit;
 
-	digit = 0;
-	while (digit <= 9)
+	for (digit = 0; digit <= 9; digit++)
 	{
-		putchar(digit + 0);
-		digit++;
+		putchar(digit + '0');
 	}
 	putchar('\n');
 
