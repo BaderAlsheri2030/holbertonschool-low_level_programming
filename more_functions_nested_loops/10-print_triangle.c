@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_triangle - Prints a triangle using the # character
+ * print_triangle - Prints a triangle using the '#' character
  * @size: Height of the triangle
  *
  * Return: Nothing
@@ -13,7 +13,7 @@ void print_triangle(int size)
 
 	if (size <= 0)
 	{
-		_putchar(n);
+		_putchar('\n');
 		return;
 	}
 
@@ -21,12 +21,12 @@ void print_triangle(int size)
 	{
 		for (column = 0; column < size - row - 1; column++)
 		{
-			_putchar( );
+			_putchar(' ');
 		}
 		for (column = 0; column <= row; column++)
 		{
-			_putchar(#);
+			_putchar('#');
 		}
-		_putchar(n);
+		_putchar('\n');
 	}
 }
