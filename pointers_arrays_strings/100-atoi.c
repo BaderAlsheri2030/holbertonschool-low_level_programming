@@ -2,17 +2,40 @@
 #include "main.h"
 
 /**
- * _atoi - converts the first number in a string to an integer
+ * append_digit - appends a digit while checking integer limits
+ * @result: number built so far
+ * @digit: next digit to append
+ * @negative: whether the number is negative
+ *
+ * Return: updated number, clamped to the int range if necessary
+ */
+static int append_digit(int result, int digit, int negative)
+{
+	if (negative)
+	{
+		if (result < INT_MIN / 10 ||
+		    (result == INT_MIN / 10 && -digit < INT_MIN % 10))
+			return (INT_MIN);
+		return (result * 10 - digit);
+	}
+
+	if (result > INT_MAX / 10 ||
+	    (result == INT_MAX / 10 && digit > INT_MAX % 10))
+		return (INT_MAX);
+	return (result * 10 + digit);
+}
+
+/**
+ * _atoi - converts a string to an integer
  * @s: string to convert
  *
- * Return: converted integer, or 0 if there are no digits
+ * Return: converted number, or 0 if there are no digits
  */
 int _atoi(char *s)
 {
 	int i;
 	int result;
 	int negative;
-	int digit;
 	int started;
 
 	i = 0;
@@ -25,35 +48,13 @@ int _atoi(char *s)
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			started = 1;
-			digit = s[i] - '0';
-
-			if (negative)
-			{
-				if (result < INT_MIN / 10 ||
-				    (result == INT_MIN / 10 &&
-				     -digit < INT_MIN % 10))
-					return (INT_MIN);
-				result = result * 10 - digit;
-			}
-			else
-			{
-				if (result > INT_MAX / 10 ||
-				    (result == INT_MAX / 10 &&
-				     digit > INT_MAX % 10))
-					return (INT_MAX);
-				result = result * 10 + digit;
-			}
+			result = append_digit(result, s[i] - '0', negative);
 		}
 		else if (started)
-		{
 			break;
-		}
 		else if (s[i] == '-')
-		{
 			negative = !negative;
-		}
 		i++;
 	}
-
 	return (result);
 }
