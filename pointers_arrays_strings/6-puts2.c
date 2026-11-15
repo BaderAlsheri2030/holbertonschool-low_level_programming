@@ -1,4 +1,8 @@
 #include "main.h"
+/*
+Description to pass betty check
+
+   */
 void puts2(char *str)
 {
 	int i;
